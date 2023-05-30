@@ -32,7 +32,7 @@ public:
     ~MainWindow();
 
 private:
-    QLabel *thelabel;
+    QLabel *swartPion;
     QVector<QVector<ChessPiece> > bord;
 
     // display bord

@@ -10,9 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     initBoard();
 
-    thelabel = new QLabel(this);
-    thelabel->setPixmap(QPixmap(":/img/pion.jpg").scaled(100,100));
-    thelabel->setFixedSize(thelabel->pixmap()->height(), thelabel->pixmap()->width());
+    swartPion = new QLabel(this);
+    swartPion->setPixmap(QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/PRAC2/swartPion.png").scaled(80, 80));
+    swartPion->setFixedSize(swartPion->pixmap()->height(), swartPion->pixmap()->width());
+    swartPion->move(0, 50);
+    setFixedSize(500, 500);
 }
 
 MainWindow::~MainWindow()
