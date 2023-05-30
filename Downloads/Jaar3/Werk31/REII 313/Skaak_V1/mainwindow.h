@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QVector>
+#include <QGridLayout>
+#include <QString>
+
 
 enum ChessPiece
 {
@@ -23,24 +26,41 @@ enum ChessPiece
     swartkoning = -6
 };
 
-class MainWindow : public QMainWindow            ///////
+class ChessBoard : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    ChessBoard(QWidget *parent = 0);
+    ~ChessBoard();
 
 private:
     QLabel *swartPion;
-    QVector<QVector<ChessPiece> > bord;
+    QVector<QVector<ChessPiece>> bord;
 
     // display bord
     // for example:
-    // QLabel* displayboard[8][8];
+   // QLabel* displayboard[8][8];
 
     void initBoard();
+    void printBoard(QVector<QVector<ChessPiece> > bord);
 
 };
+
+class Player
+{
+   // Q_OBJECT
+
+public:
+    char Name;
+    int Wins;
+    int Losses;
+    int Draws;
+    int matchesPlayed;
+
+private:
+
+};
+
 
 #endif // MAINWINDOW_H
