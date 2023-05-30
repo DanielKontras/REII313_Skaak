@@ -23,7 +23,7 @@ enum ChessPiece
     swartkoning = -6
 };
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow            ///////
 {
     Q_OBJECT
 
