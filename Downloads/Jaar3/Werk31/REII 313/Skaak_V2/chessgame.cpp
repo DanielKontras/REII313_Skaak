@@ -11,13 +11,14 @@ ChessGame::ChessGame(QWidget *parent)
     : QWidget(parent)
 {
     boardLabel = new QLabel(this);
-    boardLabel->setGeometry(100, 100, 800, 800);
-    // todo: make boardLabel show a nice 800x800 chess board image
+    boardLabel->setGeometry(70, 100, 800, 800);
+    // done: make boardLabel show a nice 800x800 chess board image
+    boardLabel->setPixmap(QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/PRAC2/skaakBord2.png").scaled(800, 800));
 
     debugLabel = new QLabel(this);
     debugLabel->setGeometry(0, 850, 800, 200);
 
-    for (int i = 0; i < 12; ++i)
+    for (int i = 0; i < 12; ++i)                          //Let op dat in board[][] kolomme eerste is en dan rye
     {
         board[i][0] = new BarrierPiece(this);
         board[i][1] = new BarrierPiece(this);
@@ -84,6 +85,9 @@ ChessGame::ChessGame(QWidget *parent)
         connect(board[i][8], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
         connect(board[i][9], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
     }
+
+    board[2][2]->movePieceTo(3, 5);
+    board[2][2] = nullptr;
 }
 
 void ChessGame::pieceClicked()
