@@ -22,7 +22,7 @@ ChessBoard::~ChessBoard()
 {
 
 }
-
+                                             //sjldhfg
 void ChessBoard::initBoard()
 {
     // frame top bottom
@@ -88,7 +88,7 @@ void ChessBoard::printBoard(QVector<QVector<ChessPiece> > bord)
 {
     const int boardSize = bord.size();
 
-//        QWidget *window = new QWidget();
+       QWidget *window = new QWidget();
         QGridLayout *gridLayout = new QGridLayout(window);
 
         for (int row = 0; row < boardSize; ++row) {
@@ -155,8 +155,8 @@ void ChessBoard::printBoard(QVector<QVector<ChessPiece> > bord)
             }
         }
 
-//        window->setLayout(gridLayout);
-//        window->show();
+        window->setLayout(gridLayout);
+        window->show();
     }
 
 
