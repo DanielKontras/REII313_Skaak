@@ -24,7 +24,7 @@ QList<Position> ChessPiece::possibleMoves()
     return moves;
 }
 
-void ChessPiece::movePieceTo(int xx, int yy)
+void ChessPiece::movePieceTo(float xx, float yy)
 {
     // Helper function to move chess piece according to board[][] coordinates.
 

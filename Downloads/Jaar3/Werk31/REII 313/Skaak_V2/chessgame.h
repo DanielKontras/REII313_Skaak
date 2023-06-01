@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include "chesspiece.h"
+#include <iostream>
+
+using namespace std;
 
 class ChessGame : public QWidget
 {
@@ -11,12 +14,16 @@ class ChessGame : public QWidget
 public:
     ChessGame(QWidget *parent = nullptr);
     Board board;
+    int clickx;
+    int clicky;
 
 private:
     void mousePressEvent(QMouseEvent*);
 
     QLabel *boardLabel;
     QLabel *debugLabel;
+
+    ChessPiece* selectedPiece = nullptr;
 
 private slots:
     void pieceClicked();

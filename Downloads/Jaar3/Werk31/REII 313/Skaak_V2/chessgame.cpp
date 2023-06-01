@@ -6,6 +6,7 @@
 #include "castlepiece.h"
 #include "queenpiece.h"
 #include "kingpiece.h"
+#include <QtDebug>
 
 ChessGame::ChessGame(QWidget *parent)
     : QWidget(parent)
@@ -80,6 +81,7 @@ ChessGame::ChessGame(QWidget *parent)
         board[10][i] = new BarrierPiece(this);
         board[11][i] = new BarrierPiece(this);
 
+
         connect(board[i][2], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
         connect(board[i][3], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
         connect(board[i][8], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
@@ -95,7 +97,7 @@ ChessGame::ChessGame(QWidget *parent)
     board[3][9] = nullptr;
 
 }
-
+/* ORIGINAL pieceClicked
 void ChessGame::pieceClicked()
 {
     ChessPiece *clickedPiece = (ChessPiece*)sender();
@@ -110,23 +112,69 @@ void ChessGame::pieceClicked()
         debugLabel->setText(debugLabel->text() + QString::number(p.x) + ", " + QString::number(p.y) + ";  ");
     }
 }
+*/
+
+void ChessGame::pieceClicked()
+{
+    ChessPiece *clickedPiece = (ChessPiece*)sender();
+
+    debugLabel->setText("Clicked piece at " + QString::number(clickedPiece->boardX()) +
+                        ", " + QString::number(clickedPiece->boardY()) + "\nMoves: ");
+    QList<Position> moves = clickedPiece->possibleMoves();
+    QListIterator<Position> mvIter(moves);
+    while (mvIter.hasNext())
+    {
+        Position p = mvIter.next();
+        debugLabel->setText(debugLabel->text() + QString::number(p.x) + ", " + QString::number(p.y) + " || ");
+    }
+
+    if (!clickedPiece)
+    {
+        // Invalid sender, not a ChessPiece object
+        return;
+    }
+    else
+    {
+        selectedPiece = clickedPiece;
+    }
+}
+
+
 
 void ChessGame::mousePressEvent(QMouseEvent *e)
 {
     // suck these constants out of the barrier piece at [0][0] which will always be there.
     // this is not necessarily elegant, but I do not want to duplicate these constants.
     // think of a more elegant way if this bothers you. (it should)
-    int xoffset = board[0][0]->xoffset;
-    int yoffset = board[0][0]->yoffset;
-    int xwidth = board[0][0]->xwidth;
-    int ywidth = board[0][0]->ywidth;
+    float xoffset = board[0][0]->xoffset;
+    float yoffset = board[0][0]->yoffset; // Ekt die ints verander na float toe
+    float xwidth = board[0][0]->xwidth;
+    float ywidth = board[0][0]->ywidth;
 
     if ((e->button() == Qt::LeftButton) && (e->x() >= xoffset) && (e->x() <= xoffset+8*xwidth)
          && (e->y() >= yoffset) && (e->y() <= yoffset+8*ywidth))
     {
-        int clickx = (e->x()-xoffset)/xwidth+2;
-        int clicky = (e->y()-yoffset)/ywidth+2;
+        clickx = ((e->x()-xoffset)/xwidth+2)+0.3;
+        clicky = (e->y()-yoffset)/ywidth+2;
         debugLabel->setText("Clicked on empty board square " + QString::number(clickx) +
                             ", " + QString::number(clicky));
+
+        if (selectedPiece != nullptr)
+        {
+            ChessPiece* targetPiece = board[clickx][clicky];
+            if (targetPiece != nullptr)
+            {
+                selectedPiece->movePieceTo(clickx, clicky);
+            }
+            else
+            {
+                selectedPiece->movePieceTo(clickx, clicky);
+            }
+        }
+        selectedPiece = nullptr;
     }
 }
+
+
+
+

@@ -9,7 +9,8 @@ typedef ChessPiece* Board[12][12];
 
 struct Position
 {
-    int x, y;
+    int x;
+    int y;
 };
 
 enum PieceColour
@@ -38,15 +39,15 @@ public:
     virtual QList<Position> possibleMoves();
     PieceColour colour();
     PieceType type();
-    void movePieceTo(int, int);
+    void movePieceTo(float, float); // Ekt die verander na float toe
     int moveCount();
     int boardX();
     int boardY();
 
-    static const int xwidth = 100;
-    static const int ywidth = 100;
-    static const int xoffset = 100;
-    static const int yoffset = 100;
+    int xwidth = 100;
+    int ywidth = 100;
+    int xoffset = 100;
+    int yoffset =100;
 
 signals:
     void iWasClicked();
