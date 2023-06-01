@@ -13,7 +13,7 @@ ChessGame::ChessGame(QWidget *parent)
     boardLabel = new QLabel(this);
     boardLabel->setGeometry(70, 100, 800, 800);
     // done: make boardLabel show a nice 800x800 chess board image
-    boardLabel->setPixmap(QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/Skaak_V2/skaakBord2.png").scaled(800, 800));
+    boardLabel->setPixmap(QPixmap("skaakBord2.png").scaled(800, 800));
 
     debugLabel = new QLabel(this);
     debugLabel->setGeometry(0, 850, 800, 200);
