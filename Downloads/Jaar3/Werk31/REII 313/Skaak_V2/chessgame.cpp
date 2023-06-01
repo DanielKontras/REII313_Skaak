@@ -87,12 +87,35 @@ ChessGame::ChessGame(QWidget *parent)
     }
 
     // Move rook for debug purposes
-    board[2][2]->movePieceTo(3, 5);
+    board[2][2]->movePieceTo(9, 7);
+    board[9][7] = board[2][2];
     board[2][2] = nullptr;
 
-    // Move knight for debug purposes
-    board[3][9]->movePieceTo(6,6);
-    board[3][9] = nullptr;
+    // Move queen for debug purposes
+    board[5][9]->movePieceTo(5,5);
+    board[5][5] = board[5][9];
+    board[5][9] = nullptr;
+
+    // Move queen for debug purposes
+    board[5][3]->movePieceTo(5,4);
+    board[5][4] = board[5][3];
+    board[5][3] = nullptr;
+
+    // Move queen for debug purposes
+    board[5][8]->movePieceTo(5,7);
+    board[5][7] = board[5][8];
+    board[5][8] = nullptr;
+
+    // Move queen for debug purposes
+    board[6][2]->movePieceTo(6,6);
+    board[6][6] = board[6][2];
+    board[6][2] = nullptr;
+
+    // Move queen for debug purposes
+    board[9][3]->movePieceTo(9,4);
+    board[9][4] = board[9][3];
+    board[9][3] = nullptr;
+
 
 }
 
