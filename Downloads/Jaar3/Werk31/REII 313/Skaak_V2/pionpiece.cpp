@@ -6,8 +6,8 @@ PionPiece::PionPiece(QWidget *parent, const Board &b, PieceColour clr)
     // todo for all derived classes: make it show a nice 100x100 pixmap of the piece in the correct
     // colour instead of this text.
    // setText(pieceColour == Black ? "Swart\nPion" : "Wit\nPion");
-    setPixmap(pieceColour == Black ? QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/PRAC2/swartPion.png").scaled(40, 40) :
-                                              QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/PRAC2/witPion.png").scaled(40, 40));
+    setPixmap(pieceColour == Black ? QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/Skaak_V2/swartPion.png").scaled(40, 40) :
+                                              QPixmap("C:/Users/dnlkr/Downloads/Jaar3/Werk31/REII 313/Skaak_V2/witPion.png").scaled(40, 40));
 }
 
 QList<Position> PionPiece::possibleMoves()
