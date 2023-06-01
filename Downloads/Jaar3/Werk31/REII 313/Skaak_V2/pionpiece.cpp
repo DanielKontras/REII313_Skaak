@@ -12,6 +12,7 @@ PionPiece::PionPiece(QWidget *parent, const Board &b, PieceColour clr)
 
 QList<Position> PionPiece::possibleMoves()
 {
+    // Andres is n fokken nerd
     // Look down for black and up for white
     Position p;
     QList<Position> moves;

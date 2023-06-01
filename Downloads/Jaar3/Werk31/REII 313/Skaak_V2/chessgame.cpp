@@ -91,7 +91,7 @@ ChessGame::ChessGame(QWidget *parent)
     board[2][2] = nullptr;
 
     // Move knight for debug purposes
-    board[3][9]->movePieceTo(6,5);
+    board[3][9]->movePieceTo(6,6);
     board[3][9] = nullptr;
 
 }
