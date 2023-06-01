@@ -24,6 +24,10 @@ QList<Position> HorsePiece::possibleMoves()
     {
         oppositeColour = Black;
     }
+    else
+    {
+        oppositeColour = BarrierColour;
+    }
 
     // 2 regs, 1 op
     if (board[x+2][y-1] == nullptr)
@@ -32,11 +36,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y-1;
         moves.append(p);
     }
-    if (board[x+2][y-1] && board[x+2][y-1]->colour() == oppositeColour)
+    else if (board[x+2][y-1] && board[x+2][y-1]->colour() == oppositeColour)
     {
         p.x = x+2;
         p.y = y-1;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 regs, 1 af
@@ -46,11 +54,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y+1;
         moves.append(p);
     }
-    if (board[x+2][y+1] && board[x+2][y+1]->colour() == oppositeColour)
+    else if (board[x+2][y+1] && board[x+2][y+1]->colour() == oppositeColour)
     {
         p.x = x+2;
         p.y = y+1;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 af, 1 regs
@@ -60,11 +72,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y+2;
         moves.append(p);
     }
-    if (board[x+1][y+2] && board[x+1][y+2]->colour() == oppositeColour)
+    else if (board[x+1][y+2] && board[x+1][y+2]->colour() == oppositeColour)
     {
         p.x = x+1;
         p.y = y+2;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 af, 1 links
@@ -74,11 +90,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y+2;
         moves.append(p);
     }
-    if (board[x-1][y+2] && board[x-1][y+2]->colour() == oppositeColour)
+    else if (board[x-1][y+2] && board[x-1][y+2]->colour() == oppositeColour)
     {
         p.x = x-1;
         p.y = y+2;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 links, 1 af
@@ -88,11 +108,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y+1;
         moves.append(p);
     }
-    if (board[x-2][y+1] && board[x-2][y+1]->colour() == oppositeColour)
+    else if (board[x-2][y+1] && board[x-2][y+1]->colour() == oppositeColour)
     {
         p.x = x-2;
         p.y = y+1;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 links, 1 op
@@ -102,11 +126,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y-1;
         moves.append(p);
     }
-    if (board[x-2][y-1] && board[x-2][y-1]->colour() == oppositeColour)
+    else if (board[x-2][y-1] && board[x-2][y-1]->colour() == oppositeColour)
     {
         p.x = x-2;
         p.y = y-1;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 op, 1 links
@@ -116,11 +144,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y-2;
         moves.append(p);
     }
-    if (board[x-1][y-2] && board[x-1][y-2]->colour() == oppositeColour)
+    else if (board[x-1][y-2] && board[x-1][y-2]->colour() == oppositeColour)
     {
         p.x = x-1;
         p.y = y-2;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
     // 2 op, 1 regs
@@ -130,11 +162,15 @@ QList<Position> HorsePiece::possibleMoves()
         p.y = y-2;
         moves.append(p);
     }
-    if (board[x+1][y-2] && board[x+1][y-2]->colour() == oppositeColour)
+    else if (board[x+1][y-2] && board[x+1][y-2]->colour() == oppositeColour)
     {
         p.x = x+1;
         p.y = y-2;
         moves.append(p);
+    }
+    else
+    {
+
     }
 
 
