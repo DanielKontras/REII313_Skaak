@@ -86,8 +86,14 @@ ChessGame::ChessGame(QWidget *parent)
         connect(board[i][9], SIGNAL(iWasClicked()), this, SLOT(pieceClicked()));
     }
 
+    // Move rook for debug purposes
     board[2][2]->movePieceTo(3, 5);
     board[2][2] = nullptr;
+
+    // Move knight for debug purposes
+    board[3][9]->movePieceTo(6,5);
+    board[3][9] = nullptr;
+
 }
 
 void ChessGame::pieceClicked()
