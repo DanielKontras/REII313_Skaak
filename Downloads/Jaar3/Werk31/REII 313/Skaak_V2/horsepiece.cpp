@@ -9,7 +9,7 @@ HorsePiece::HorsePiece(QWidget *parent, const Board &b, PieceColour clr)
 
 }
 
-QList<Position> HorsePiece::possibleMoves()
+QList<Position> HorsePiece::possibleMoves()          //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 {
     Position p;
     QList<Position> moves;
